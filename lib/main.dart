@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:spin_flow/presentation/screens/dashboard.dart';
+import 'package:spin_flow/presentation/screens/formclassroom.dart';
+import 'package:spin_flow/presentation/screens/formmanufacter.dart';
+import 'package:spin_flow/presentation/screens/formstudent.dart';
+import 'package:spin_flow/presentation/screens/formsupporttype.dart';
+import 'package:spin_flow/presentation/screens/formvideoaula.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +36,14 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/': (context) => const TelaDashboard(),
+        '/video-aula-cadastro': (context) => const VideoAulaCadastro(),
+        '/aluno-cadastro': (context) => const AlunoCadastro(),
+        '/fabricante-cadastro': (context) => const FabricanteCadastro(),
+        '/sala-cadastro': (context) => const SalaCadastro(),
+        '/tipo-manutencao-cadastro': (context) => const TipoManutencaoCadastro(),
+      },
     );
   }
 }
