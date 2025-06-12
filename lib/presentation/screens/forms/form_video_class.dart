@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class VideoAulaCadastro extends StatefulWidget {
-  const VideoAulaCadastro({super.key});
+class VideoClassForm extends StatefulWidget {
+  const VideoClassForm({super.key});
 
   @override
-  State<VideoAulaCadastro> createState() => _VideoAulaCadastroState();
+  State<VideoClassForm> createState() => _VideoClassFormState();
 }
 
-class _VideoAulaCadastroState extends State<VideoAulaCadastro> {
+class _VideoClassFormState extends State<VideoClassForm> {
   final _formKey = GlobalKey<FormState>();
   String nome = '';
   String linkVideo = '';

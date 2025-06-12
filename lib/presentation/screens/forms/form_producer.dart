@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 
-class SalaCadastro extends StatefulWidget {
-  const SalaCadastro({super.key});
+class ProducerForm extends StatefulWidget {
+  const ProducerForm({super.key});
 
   @override
-  State<SalaCadastro> createState() => _SalaCadastroState();
+  State<ProducerForm> createState() => _ProducerFormState();
 }
 
-class _SalaCadastroState extends State<SalaCadastro> {
+class _ProducerFormState extends State<ProducerForm> {
   final _formKey = GlobalKey<FormState>();
 
   final _nomeController = TextEditingController();
-  final _capacidadeController = TextEditingController();
-  final _numeroFilasController = TextEditingController();
-  final _bikesPorFilaController = TextEditingController();
+  final _descricaoController = TextEditingController();
+  final _nomeContatoController = TextEditingController();
+  final _emailContatoController = TextEditingController();
+  final _telefoneContatoController = TextEditingController();
 
   bool _ativo = true;
 
@@ -21,7 +22,7 @@ class _SalaCadastroState extends State<SalaCadastro> {
     if (_formKey.currentState!.validate()) {
       // Aqui você pode salvar os dados ou enviar para a API/localStorage
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Sala salva com sucesso!')),
+        const SnackBar(content: Text('Fabricante salvo com sucesso!')),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -33,16 +34,17 @@ class _SalaCadastroState extends State<SalaCadastro> {
   @override
   void dispose() {
     _nomeController.dispose();
-    _capacidadeController.dispose();
-    _numeroFilasController.dispose();
-    _bikesPorFilaController.dispose();
+    _descricaoController.dispose();
+    _nomeContatoController.dispose();
+    _emailContatoController.dispose();
+    _telefoneContatoController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Cadastro de Sala')),
+      appBar: AppBar(title: const Text('Cadastro de Fabricante')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -51,29 +53,35 @@ class _SalaCadastroState extends State<SalaCadastro> {
             children: [
               TextFormField(
                 controller: _nomeController,
-                decoration: const InputDecoration(labelText: 'Nome da Sala'),
+                decoration: const InputDecoration(labelText: 'Nome'),
                 validator: (value) =>
                     value == null || value.isEmpty ? 'Campo obrigatório' : null,
               ),
               TextFormField(
-                controller: _capacidadeController,
-                decoration: const InputDecoration(labelText: 'Capacidade Total de Bikes'),
-                keyboardType: TextInputType.number,
+                controller: _descricaoController,
+                decoration: const InputDecoration(labelText: 'Descrição'),
+                maxLines: 2,
+              ),
+              TextFormField(
+                controller: _nomeContatoController,
+                decoration: const InputDecoration(labelText: 'Nome do contato principal'),
                 validator: (value) =>
                     value == null || value.isEmpty ? 'Campo obrigatório' : null,
               ),
               TextFormField(
-                controller: _numeroFilasController,
-                decoration: const InputDecoration(labelText: 'Número de Filas'),
-                keyboardType: TextInputType.number,
+                controller: _emailContatoController,
+                decoration: const InputDecoration(labelText: 'Email de contato'),
+                keyboardType: TextInputType.emailAddress,
+                validator: (value) =>
+                    value == null || !value.contains('@') ? 'Email inválido' : null,
               ),
               TextFormField(
-                controller: _bikesPorFilaController,
-                decoration: const InputDecoration(labelText: 'Número de Bikes por Fila'),
-                keyboardType: TextInputType.number,
+                controller: _telefoneContatoController,
+                decoration: const InputDecoration(labelText: 'Telefone de contato'),
+                keyboardType: TextInputType.phone,
               ),
               SwitchListTile(
-                title: const Text('Sala ativa'),
+                title: const Text('Fabricante ativo'),
                 value: _ativo,
                 onChanged: (value) {
                   setState(() {

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TipoManutencaoCadastro extends StatefulWidget {
-  const TipoManutencaoCadastro({super.key});
+class MaintenanceTypeForm extends StatefulWidget {
+  const MaintenanceTypeForm({super.key});
 
   @override
-  State<TipoManutencaoCadastro> createState() => _TipoManutencaoCadastroState();
+  State<MaintenanceTypeForm> createState() => _MaintenanceTypeFormState();
 }
 
-class _TipoManutencaoCadastroState extends State<TipoManutencaoCadastro> {
+class _MaintenanceTypeFormState extends State<MaintenanceTypeForm> {
   final _formKey = GlobalKey<FormState>();
 
   final _nomeController = TextEditingController();

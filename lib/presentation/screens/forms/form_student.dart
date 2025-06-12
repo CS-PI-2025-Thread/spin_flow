@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AlunoCadastro extends StatefulWidget {
-  const AlunoCadastro({super.key});
+class FormStudent extends StatefulWidget {
+  const FormStudent({super.key});
 
   @override
-  State<AlunoCadastro> createState() => _AlunoCadastroState();
+  State<FormStudent> createState() => _FormStudentState();
 }
 
-class _AlunoCadastroState extends State<AlunoCadastro> {
+class _FormStudentState extends State<FormStudent> {
   final _formKey = GlobalKey<FormState>();
 
   final _nomeController = TextEditingController();
@@ -17,11 +17,11 @@ class _AlunoCadastroState extends State<AlunoCadastro> {
   final _facebookController = TextEditingController();
   final _tiktokController = TextEditingController();
 
-  DateTime? _dataNascimento;
-  String? _genero;
-  bool _ativo = true;
+  DateTime? _birthDate;
+  String? _gender;
+  bool _active = true;
 
-  Future<void> _selecionarDataNascimento(BuildContext context) async {
+  Future<void> _selectBirthDate(BuildContext context) async {
     final dataSelecionada = await showDatePicker(
       context: context,
       initialDate: DateTime(2005),
@@ -31,13 +31,13 @@ class _AlunoCadastroState extends State<AlunoCadastro> {
 
     if (dataSelecionada != null) {
       setState(() {
-        _dataNascimento = dataSelecionada;
+        _birthDate = dataSelecionada;
       });
     }
   }
 
-  void _salvarFormulario() {
-    if (_formKey.currentState!.validate() && _dataNascimento != null && _genero != null) {
+  void _saveForm() {
+    if (_formKey.currentState!.validate() && _birthDate != null && _gender != null) {
       // Aqui você pode salvar os dados ou enviar para a API/localStorage
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Aluno salvo com sucesso!')),
@@ -85,15 +85,15 @@ class _AlunoCadastroState extends State<AlunoCadastro> {
               ),
               const SizedBox(height: 10),
               ListTile(
-                title: Text(_dataNascimento == null
+                title: Text(_birthDate == null
                     ? 'Selecionar data de nascimento'
-                    : 'Data de nascimento: ${_dataNascimento!.day}/${_dataNascimento!.month}/${_dataNascimento!.year}'),
+                    : 'Data de nascimento: ${_birthDate!.day}/${_birthDate!.month}/${_birthDate!.year}'),
                 trailing: const Icon(Icons.calendar_today),
-                onTap: () => _selecionarDataNascimento(context),
+                onTap: () => _selectBirthDate(context),
               ),
               DropdownButtonFormField<String>(
                 decoration: const InputDecoration(labelText: 'Gênero'),
-                value: _genero,
+                value: _gender,
                 items: const [
                   DropdownMenuItem(value: 'Masculino', child: Text('Masculino')),
                   DropdownMenuItem(value: 'Feminino', child: Text('Feminino')),
@@ -101,7 +101,7 @@ class _AlunoCadastroState extends State<AlunoCadastro> {
                 ],
                 onChanged: (value) {
                   setState(() {
-                    _genero = value;
+                    _gender = value;
                   });
                 },
                 validator: (value) =>
@@ -126,16 +126,16 @@ class _AlunoCadastroState extends State<AlunoCadastro> {
               ),
               SwitchListTile(
                 title: const Text('Aluno ativo'),
-                value: _ativo,
+                value: _active,
                 onChanged: (value) {
                   setState(() {
-                    _ativo = value;
+                    _active = value;
                   });
                 },
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: _salvarFormulario,
+                onPressed: _saveForm,
                 child: const Text('Salvar'),
               ),
             ],
