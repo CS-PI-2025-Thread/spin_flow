@@ -1,13 +1,13 @@
 import 'package:spin_flow/dto/dto.dart';
 
-class PositionClassDTO extends DTO {
+class PositionClassModel extends DTO {
   int numberBikes;
   int numberQueue;
   int limitQueueBikes;
   int positionBikeTeacher; // índice da coluna da bike da professora na fila 0
   List<List<int>> position; // grade das bikes
 
-  PositionClassDTO({
+  PositionClassModel({
     required super.id,
     required super.nome,
     required this.numberBikes,

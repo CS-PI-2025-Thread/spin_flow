@@ -5,7 +5,7 @@ import 'package:spin_flow/presentation/screens/forms/form_producer.dart';
 import 'package:spin_flow/presentation/screens/forms/form_student.dart';
 import 'package:spin_flow/presentation/screens/forms/form_maintenance_type.dart';
 import 'package:spin_flow/presentation/screens/forms/form_video_class.dart';
-import 'presentation/screens/dashboard/dashboard_screen.dart';
+import 'package:spin_flow/presentation/screens/dashboard/dashboard_screen.dart';
 
 void main() {
   runApp(const MyApp());
