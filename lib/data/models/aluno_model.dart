@@ -1,26 +1,25 @@
-// data/models/aluno_model.dart
-class AlunoModel {
-  final int id;
-  final String nome;
-  final String email;
-  final DateTime dataNascimento;
-  final String genero;
-  final String telefoneContato;
-  final String perfilInstagram;
-  final String perfilFacebook;
-  final String perfilTiktok;
-  final bool ativo;
+import 'package:spin_flow/data/models/model.dart';
 
-  AlunoModel({
-    required this.id,
-    required this.nome,
+class StudentModel extends Model {
+  final String email;
+  final DateTime dateBirth;
+  final String gender;
+  final String phone;
+  final String? instagramProfile;
+  final String? facebookProfile;
+  final String? tiktokProfile;
+  final bool active;
+
+  StudentModel({
+    super.id,
+    required super.name,
     required this.email,
-    required this.dataNascimento,
-    required this.genero,
-    required this.telefoneContato,
-    required this.perfilInstagram,
-    required this.perfilFacebook,
-    required this.perfilTiktok,
-    required this.ativo,
+    required this.dateBirth,
+    required this.gender,
+    required this.phone,
+    this.instagramProfile,
+    this.facebookProfile,
+    this.tiktokProfile,
+    required this.active,
   });
 }

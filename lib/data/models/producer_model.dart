@@ -1,18 +1,18 @@
-import 'package:spin_flow/dto/dto.dart';
+import 'package:spin_flow/data/models/model.dart';
 
-class ProducerModel extends DTO {
+class ProducerModel extends Model {
   final String? description;
-  final String? contractName;
   final String? contactName;
+  final String? contactEmail;
   final String? contactPhone;
   final bool active;
 
   ProducerModel({
     super.id,
-    required super.nome,
+    required super.name,
     this.description,
-    this.contractName,
     this.contactName,
+    this.contactEmail,
     this.contactPhone,
     this.active = true,
   });

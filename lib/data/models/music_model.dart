@@ -1,15 +1,13 @@
-import 'package:spin_flow/dto/dto.dart';
+import 'package:spin_flow/data/models/model.dart';
 
-class MusicModel extends DTO {
-  final String? name;
+class MusicModel extends Model {
   final String? letter;
   final double? duration;
   final String? artist;
 
   MusicModel({
     super.id,
-    required super.nome,
-    this.name,
+    required super.name,
     this.letter,
     this.duration,
     this.artist,
