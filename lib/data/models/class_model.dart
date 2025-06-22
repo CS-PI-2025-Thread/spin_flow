@@ -1,5 +1,5 @@
 import 'package:spin_flow/data/models/model.dart';
-import 'package:spin_flow/data/models/sala_model.dart';
+import 'package:spin_flow/data/models/position_class_model.dart';
 
 enum WeekDay { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
 

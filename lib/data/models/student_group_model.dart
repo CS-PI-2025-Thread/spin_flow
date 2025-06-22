@@ -1,4 +1,4 @@
-import 'package:spin_flow/data/models/aluno_model.dart';
+import 'package:spin_flow/data/models/student_model.dart';
 import 'package:spin_flow/data/models/model.dart';
 
 class StudentGroupModel extends Model {
